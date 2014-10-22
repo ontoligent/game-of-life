@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conway's Game of Life</title>
+    <link rel="stylesheet" type="text/css" href="life.css" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script> -->
+    <script src="life.js"></script>
+    <script>
+    $(document).ready(function(){
+      var evolveFunc;
+      var gol = new GOL('#grid');
+      gol.Init();          
+      $('#step').click(function(){
+        clearInterval(evolveFunc);
+        gol.evolve();
+      });
+      $('#clear').click(function(){
+        clearInterval(evolveFunc);
+        gol.clearGrid();
+      });
+      $('#reset').click(function(){
+        clearInterval(evolveFunc);
+        gol.randomizeGrid();
+      });
+      $('#evolve').click(function(){
+        evolveFunc = setInterval(function(){
+          gol.evolve(); 
+          if (gol.pop == 0) clearInterval(evolveFunc); // Why does this work?!  
+         },500);
+      });
+      $('#stop').click(function(){
+        clearInterval(evolveFunc);
+      });
+      $('#grid td').on('click',function(){
+        clearInterval(evolveFunc);
+        var coords = $(this).attr('id').split('-');
+        var c = gol.grid1[coords[1]][coords[2]];
+        if (c == 1) { gol.grid1[coords[1]][coords[2]] = 0; gol.pop--; }
+        else { gol.grid1[coords[1]][coords[2]] = 1; gol.pop++; }
+        gol.showGrid();
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <div id="game">
+      <div id='title'>
+        <h1>Conway's Game of Life</h1>
+      </div>
+      <div id="instructions">Click on a cell to toggle its state. Press EVOLVE to iterate and RESET to initialize to a random arrangement.</div>
+      <div id="menu">
+        <button id="reset">RESET</button>
+        <button id="evolve">EVOLVE</button>
+        <button id="step">STEP</button>
+        <button id="stop">STOP</button>
+        <button id="clear">CLEAR</button>
+      </div>
+      <div id="status">STATUS</div>
+      <div id="grid"></div>
+    </div>
+  </body>                        
+</html>

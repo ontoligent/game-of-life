@@ -1,0 +1,59 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  margin-bottom: 1em;  
+}
+
+#game {
+  width:10in;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#title {
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#menu {
+  text-align:center;
+}
+
+#instructions {
+  font-size:80%;
+  text-align: center;
+  margin-bottom: 1em;  
+}
+
+a {
+  text-decoration:none;
+}
+
+#grid {
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#grid td {
+  width: 23px;
+  height: 25px;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  _border:1px solid gray;
+  _border-spacing: 0px;
+}
+
+#grid td.on {
+  _background-color: blue;
+  background-image: url("greenDot.gif");
+}
+
+#grid td.off {
+  background-color: white;
+  _background-image: url("VistaPlayStopPauseIconsPreview5.jpg");
+}
