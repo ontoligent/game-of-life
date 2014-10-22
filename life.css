@@ -44,16 +44,12 @@ a {
   text-align: center;
   margin: 0px;
   padding: 0px;
-  _border:1px solid gray;
-  _border-spacing: 0px;
 }
 
 #grid td.on {
-  _background-color: blue;
   background-image: url("greenDot.gif");
 }
 
 #grid td.off {
   background-color: white;
-  _background-image: url("VistaPlayStopPauseIconsPreview5.jpg");
 }
