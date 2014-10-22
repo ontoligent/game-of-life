@@ -120,7 +120,7 @@ function printGrid ($grid) {
   foreach ($grid as $row) {
     $table .= "\t<tr>\n";
     foreach ($row as $cell) {
-      $image = "<img src='icon_circle_blue_2.gif' />";
+      $image = "<img src='greenDot.gif' />";
       //$image ='*';
       if (!$cell) $image = '&nbsp;'; 
       $table .= "<td>$image</td>";
