@@ -39,7 +39,7 @@ a {
 </head>
 <body>
 <div id="game">
-<a href="life.html">Here is a better version ...</a><br />
+<a href="index.html">Here is a better version ...</a><br />
 <?php
 
 session_start();
